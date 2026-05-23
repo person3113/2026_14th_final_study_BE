@@ -11,7 +11,7 @@
 - **Phase 3 (Security 및 JWT 인프라스트럭처 설정)**: `[x]` 완료
 - **Phase 4 (핵심 서비스 및 컨트롤러 구현)**: `[x]` 완료
 - **Phase 5 (Dockerizing 및 CI/CD 구축)**: `[x]` 완료
-- **Phase 6 (API 문서화 및 검증)**: `[ ]` 대기
+- **Phase 6 (API 문서화 및 검증)**: `[x]` 완료
 
 ---
 
@@ -44,7 +44,7 @@
 - [x] DB(MySQL) 및 스프링 서버 컨테이너를 가동할 `docker-compose.yml` 작성
 - [x] `.github/workflows/deploy.yml` 파일 작성을 통한 빌드-테스트-이미징-Oracle Cloud 서버 SSH 원격 배포 자동화 구현
 
-### 📌 [Phase 6] API 문서화 및 검증 `[ ]`
-- [ ] Swagger (Springdoc OpenAPI) 애노테이션을 적용하여 API 명세 고도화
-- [ ] 로컬 환경(H2 DB)에서 전체 인증/인가 시나리오 수동 테스트 및 검증
-- [ ] 단위 테스트 코드 작성 (우대사항)
+### 📌 [Phase 6] API 문서화 및 검증 `[x]`
+- [x] Swagger (Springdoc OpenAPI) 애노테이션을 적용하여 API 명세 고도화
+- [x] 로컬 환경(H2 DB)에서 전체 인증/인가 시나리오 수동 테스트 및 검증
+- [x] 단위 테스트 코드 작성 (우대사항)
