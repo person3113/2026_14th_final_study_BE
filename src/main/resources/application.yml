@@ -1,21 +1,9 @@
 spring:
+  profiles:
+    active: local # 기본 구동 프로필을 local(H2 인메모리)로 지정하여 환경변수 없이 가동 가능하게 조치
+
   application:
     name: final
-
-  datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-
-  jpa:
-    hibernate:
-      ddl-auto: create
-
-jwt:
-  secret-key: ${JWT_SECRET_KEY}
-  access-token:
-    header: Authorization
-    expiration:
 
 springdoc:
   api-docs:

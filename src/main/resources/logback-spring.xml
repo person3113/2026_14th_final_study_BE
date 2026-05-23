@@ -32,8 +32,8 @@
 
     <!-- 프로필에 따른 로깅 레벨 및 Appender 분할 제어 -->
 
-    <!-- Local 환경 -->
-    <springProfile name="local">
+    <!-- Local 및 Default 환경 -->
+    <springProfile name="local, default">
         <root level="INFO">
             <appender-ref ref="CONSOLE"/>
         </root>
