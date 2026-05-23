@@ -14,8 +14,8 @@
 ## 📋 세부 작업 TODO 리스트 및 워크플로우
 
 ### [Task 1] JWT 토큰 공급자 (`JwtProvider`) 구현
-- [ ] **패키지 생성**: `com.example.demo.security` (또는 `com.example.demo.security.jwt`)
-- [ ] **JwtProvider 클래스 구현**:
+- [x] **패키지 생성**: `com.example.demo.security` (또는 `com.example.demo.security.jwt`)
+- [x] **JwtProvider 클래스 구현**:
   - `@Component` 애노테이션 탑재
   - `application.yml`에 선언된 `jwt.secret-key` 주입 받아 서명 키(`SecretKey`) 생성 패턴 구현 (최신 `Keys.hmacShaKeyFor` 활용)
   - **Access Token 생성 메소드** 설계 (유효시간 30분, 페이로드에 email 및 role 적재)
@@ -26,7 +26,7 @@
     - 토큰에서 사용자 이메일(`email`) 및 권한 리스트 추출
 
 ### [Task 2] JWT 인증 필터 (`JwtAuthenticationFilter`) 구현
-- [ ] **JwtAuthenticationFilter 클래스 구현**:
+- [x] **JwtAuthenticationFilter 클래스 구현**:
   - `OncePerRequestFilter` 상속
   - HTTP 요청의 `Authorization` 헤더에서 Access Token 추출 로직 구현 (`Bearer ` 접두사 파싱)
   - 추출한 토큰이 유효한 경우, `JwtProvider`를 통해 이메일 및 권한을 파싱하여 Spring Security의 인증 객체(`UsernamePasswordAuthenticationToken`) 생성
@@ -34,7 +34,7 @@
   - 토큰이 만료되었거나 서명이 유효하지 않을 경우, SecurityContext를 깨끗하게 비우고 예외 로그 출력 후 체인 통과 처리 (이후 EntryPoint에서 401 처리 유도)
 
 ### [Task 3] Spring Security 설정 클래스 (`SecurityConfig`) 구성
-- [ ] **SecurityConfig 클래스 구현**:
+- [x] **SecurityConfig 클래스 구현**:
   - `@Configuration`, `@EnableWebSecurity` 애노테이션 설정
   - **패스워드 암호화 빈 등록**:
     - `@Bean PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }`

@@ -8,7 +8,7 @@
 ## 🚦 전체 진행 상황 요약
 - **Phase 1 (공통 예외 및 기본 뼈대 구축)**: `[x]` 완료
 - **Phase 2 (도메인 모델 및 리포지토리 구현)**: `[x]` 완료
-- **Phase 3 (Security 및 JWT 인프라스트럭처 설정)**: `[ ]` 대기
+- **Phase 3 (Security 및 JWT 인프라스트럭처 설정)**: `[x]` 완료
 - **Phase 4 (핵심 서비스 및 컨트롤러 구현)**: `[ ]` 대기
 - **Phase 5 (Dockerizing 및 CI/CD 구축)**: `[ ]` 대기
 - **Phase 6 (API 문서화 및 검증)**: `[ ]` 대기
@@ -28,10 +28,10 @@
 - [x] 회원 리포지토리 (`UserRepository`) 구현
 - [x] Refresh Token 엔티티 (`RefreshToken`) 및 리포지토리 (`RefreshTokenRepository`) 구현
 
-### 📌 [Phase 3] Security 및 JWT 인프라스트럭처 설정 `[ ]`
-- [ ] JWT 토큰 생성 및 검증을 담당할 `JwtProvider` 구현 (jjwt 0.12.6 빌더 패턴 사용)
-- [ ] JWT 필터 (`JwtAuthenticationFilter`) 구현 및 Security Filter Chain에 통합
-- [ ] Spring Security 설정 클래스 (`SecurityConfig`) 구성 (BCryptPasswordEncoder 빈 등록 및 경로별 접근 권한 설정)
+### 📌 [Phase 3] Security 및 JWT 인프라스트럭처 설정 `[x]`
+- [x] JWT 토큰 생성 및 검증을 담당할 `JwtProvider` 구현 (jjwt 0.12.6 빌더 패턴 사용)
+- [x] JWT 필터 (`JwtAuthenticationFilter`) 구현 및 Security Filter Chain에 통합
+- [x] Spring Security 설정 클래스 (`SecurityConfig`) 구성 (BCryptPasswordEncoder 빈 등록 및 경로별 접근 권한 설정)
 
 ### 📌 [Phase 4] 핵심 서비스 및 컨트롤러 구현 (비즈니스 로직 & 로깅 연동) `[ ]`
 - [ ] 회원가입 및 로그인 서비스 로직 구현 (비밀번호 암호화 및 Access/Refresh Token 발급, 주요 단계 로깅 처리)
