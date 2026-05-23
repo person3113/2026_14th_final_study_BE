@@ -9,7 +9,7 @@
 - **Phase 1 (공통 예외 및 기본 뼈대 구축)**: `[x]` 완료
 - **Phase 2 (도메인 모델 및 리포지토리 구현)**: `[x]` 완료
 - **Phase 3 (Security 및 JWT 인프라스트럭처 설정)**: `[x]` 완료
-- **Phase 4 (핵심 서비스 및 컨트롤러 구현)**: `[ ]` 대기
+- **Phase 4 (핵심 서비스 및 컨트롤러 구현)**: `[x]` 완료
 - **Phase 5 (Dockerizing 및 CI/CD 구축)**: `[ ]` 대기
 - **Phase 6 (API 문서화 및 검증)**: `[ ]` 대기
 
@@ -33,11 +33,11 @@
 - [x] JWT 필터 (`JwtAuthenticationFilter`) 구현 및 Security Filter Chain에 통합
 - [x] Spring Security 설정 클래스 (`SecurityConfig`) 구성 (BCryptPasswordEncoder 빈 등록 및 경로별 접근 권한 설정)
 
-### 📌 [Phase 4] 핵심 서비스 및 컨트롤러 구현 (비즈니스 로직 & 로깅 연동) `[ ]`
-- [ ] 회원가입 및 로그인 서비스 로직 구현 (비밀번호 암호화 및 Access/Refresh Token 발급, 주요 단계 로깅 처리)
-- [ ] 토큰 재발급 서비스 구현 (`/api/v1/auth/reissue` - Refresh Token 쿠키 검증 및 새로운 Access Token 발급, 로깅 처리)
-- [ ] 내 정보 조회(마이페이지) 기능 구현 (`/api/v1/users/me`)
-- [ ] Spring Validation을 적용한 Request DTO 검증 추가 및 로그 연동
+### 📌 [Phase 4] 핵심 서비스 및 컨트롤러 구현 (비즈니스 로직 & 로깅 연동) `[x]`
+- [x] 회원가입 및 로그인 서비스 로직 구현 (비밀번호 암호화 및 Access/Refresh Token 발급, 주요 단계 로깅 처리)
+- [x] 토큰 재발급 서비스 구현 (`/api/v1/auth/reissue` - Refresh Token 쿠키 검증 및 새로운 Access Token 발급, 로깅 처리)
+- [x] 내 정보 조회(마이페이지) 기능 구현 (`/api/v1/users/me`)
+- [x] Spring Validation을 적용한 Request DTO 검증 추가 및 로그 연동
 
 ### 📌 [Phase 5] Dockerizing 및 CI/CD 구축 `[ ]`
 - [ ] 멀티스테이지 빌드를 적용한 최적화된 경량 `Dockerfile` 작성

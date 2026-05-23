@@ -14,21 +14,21 @@
 ## 📋 세부 작업 TODO 리스트 및 워크플로우
 
 ### [Task 1] 회원가입, 로그인, 재발급 DTO 클래스 설계
-- [ ] **패키지 생성**: `com.example.demo.dto`
-- [ ] **SignupRequest 구현**:
+- [x] **패키지 생성**: `com.example.demo.dto`
+- [x] **SignupRequest 구현**:
   - 이메일: `@Email(message = "올바른 이메일 형식이어야 합니다.") @NotBlank(message = "이메일은 필수 입력값입니다.") String email`
   - 비밀번호: `@Size(min = 4, message = "비밀번호는 최소 4자 이상이어야 합니다.") @NotBlank(message = "비밀번호는 필수 입력값입니다.") String password`
   - 닉네임: `@NotBlank(message = "닉네임은 필수 입력값입니다.") String nickname`
-- [ ] **LoginRequest 구현**:
+- [x] **LoginRequest 구현**:
   - `email`, `password` 필드 및 검증 애노테이션
-- [ ] **TokenResponse 구현**:
+- [x] **TokenResponse 구현**:
   - `String accessToken`만 제공 (Refresh Token은 보안 쿠키로 전달)
-- [ ] **UserResponse 구현**:
+- [x] **UserResponse 구현**:
   - 마이페이지 조회용 `Long id`, `String email`, `String nickname` 필드 정의
 
 ### [Task 2] 회원가입, 로그인, 재발급 핵심 서비스 (`AuthService`, `UserService`) 구현
-- [ ] **패키지 생성**: `com.example.demo.service`
-- [ ] **AuthService 구현**:
+- [x] **패키지 생성**: `com.example.demo.service`
+- [x] **AuthService 구현**:
   - **회원가입 (`signup`)**:
     - 이메일 중복 검사 (`UserRepository.existsByEmail` 활용) 및 예외 처리
     - `PasswordEncoder.encode`를 통해 패스워드를 암호화하여 저장
@@ -42,20 +42,20 @@
     - 요청에 담긴 Refresh Token 유효성 검증
     - 데이터베이스의 Refresh Token 조회 및 비교 분석
     - 검증 통과 시 신규 Access Token 발급 및 반환
-- [ ] **UserService 구현**:
+- [x] **UserService 구현**:
   - **내 정보 조회 (`getUserProfile`)**:
     - 이메일을 기반으로 사용자 정보 조회 후 `UserResponse` 변환 반환
 
 ### [Task 3] 컨트롤러 구현 및 HttpOnly 보안 쿠키 연동 (`AuthController`, `UserController`)
-- [ ] **패키지 생성**: `com.example.demo.controller`
-- [ ] **AuthController 구현**:
+- [x] **패키지 생성**: `com.example.demo.controller`
+- [x] **AuthController 구현**:
   - 회원가입 API: `POST /api/v1/auth/signup` (`@Valid` 필수)
   - 로그인 API: `POST /api/v1/auth/login`
     - 로그인 성공 시, Refresh Token은 **`ResponseCookie`** 또는 **`Cookie`** API를 사용하여 **`HttpOnly`**, **`Secure`** (실제 HTTPS 상에서 동작), **`Path=/`** 설정을 적용해 응답 헤더(`Set-Cookie`)에 적재
     - Access Token은 JSON 응답 바디로 반환
   - 토큰 재발급 API: `POST /api/v1/auth/reissue`
     - HttpServletRequest의 Cookie 배열에서 리프레시 토큰 추출 후 `AuthService` 위임 처리
-- [ ] **UserController 구현**:
+- [x] **UserController 구현**:
   - 내 정보 조회 API: `GET /api/v1/users/me`
     - SecurityContextHolder에서 파싱된 인증 정보 객체(`Principal` 또는 `@AuthenticationPrincipal`)를 활용해 이메일을 획득하고, `UserService`를 연동하여 내 정보 반환
 
