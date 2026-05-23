@@ -14,10 +14,10 @@
 ## 📋 세부 작업 TODO 리스트 및 워크플로우
 
 ### [Task 1] 회원 권한 Enum (`Role`) 및 회원 엔티티 (`User`) 설계
-- [ ] **패키지 생성**: `com.example.demo.domain`
-- [ ] **Role Enum 설계**:
+- [x] **패키지 생성**: `com.example.demo.domain`
+- [x] **Role Enum 설계**:
   - `ROLE_USER`, `ROLE_ADMIN` 등 스프링 시큐리티 표준 접두사(`ROLE_`)를 만족하도록 정의
-- [ ] **User JPA 엔티티 구현**:
+- [x] **User JPA 엔티티 구현**:
   - 테이블명: `users` 매핑
   - PK 필드: `@Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id`
   - 이메일: `@Column(nullable = false, unique = true) String email`
@@ -27,22 +27,22 @@
   - 가독성 높은 디버깅 로그를 위해 Lombok `@ToString` 적용 (비밀번호 필드는 `@ToString.Exclude` 처리하여 보안성 유지)
 
 ### [Task 2] 회원 리포지토리 (`UserRepository`) 구현
-- [ ] **패키지 생성**: `com.example.demo.repository`
-- [ ] **UserRepository 인터페이스 구현**:
+- [x] **패키지 생성**: `com.example.demo.repository`
+- [x] **UserRepository 인터페이스 구현**:
   - `JpaRepository<User, Long>` 상속
   - 이메일을 통한 사용자 탐색 및 중복 체크 쿼리 메소드 설계:
     - `Optional<User> findByEmail(String email)`
     - `boolean existsByEmail(String email)`
 
 ### [Task 3] Refresh Token 엔티티 (`RefreshToken`) 및 리포지토리 구현
-- [ ] **RefreshToken JPA 엔티티 구현**:
+- [x] **RefreshToken JPA 엔티티 구현**:
   - 테이블명: `refresh_token` 매핑
   - PK 필드: `@Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id`
   - 사용자 이메일: `@Column(nullable = false, unique = true) String email` (사용자당 단 하나의 활성 리프레시 토큰만 소유하도록 유니크 키 설정)
   - 토큰값: `@Column(nullable = false) String token`
   - 만료 일시: `@Column(nullable = false) LocalDateTime expiryDate`
   - 비즈니스 로직(토큰 값 업데이트, 만료 체크)을 엔티티 객체 내부에 응집하여 개발
-- [ ] **RefreshTokenRepository 인터페이스 구현**:
+- [x] **RefreshTokenRepository 인터페이스 구현**:
   - `JpaRepository<RefreshToken, Long>` 상속
   - 토큰 검색 및 만료 일시 기반 삭제 쿼리 설계:
     - `Optional<RefreshToken> findByToken(String token)`

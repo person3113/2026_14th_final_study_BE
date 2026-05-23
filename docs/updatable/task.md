@@ -7,7 +7,7 @@
 
 ## 🚦 전체 진행 상황 요약
 - **Phase 1 (공통 예외 및 기본 뼈대 구축)**: `[x]` 완료
-- **Phase 2 (도메인 모델 및 리포지토리 구현)**: `[ ]` 대기
+- **Phase 2 (도메인 모델 및 리포지토리 구현)**: `[x]` 완료
 - **Phase 3 (Security 및 JWT 인프라스트럭처 설정)**: `[ ]` 대기
 - **Phase 4 (핵심 서비스 및 컨트롤러 구현)**: `[ ]` 대기
 - **Phase 5 (Dockerizing 및 CI/CD 구축)**: `[ ]` 대기
@@ -23,10 +23,10 @@
 - [x] 예외 처리를 전역에서 잡아줄 `GlobalExceptionHandler` 구성
 - [x] 프로필별(Local/Prod) 로깅 설정을 위한 `logback-spring.xml` 설계 및 로깅 공통 클래스 생성
 
-### 📌 [Phase 2] 도메인 모델 및 리포지토리 구현 `[ ]`
-- [ ] 회원 엔티티 (`User`) 및 권한 Enum (`Role`) 설계
-- [ ] 회원 리포지토리 (`UserRepository`) 구현
-- [ ] Refresh Token 엔티티 (`RefreshToken`) 및 리포지토리 (`RefreshTokenRepository`) 구현
+### 📌 [Phase 2] 도메인 모델 및 리포지토리 구현 `[x]`
+- [x] 회원 엔티티 (`User`) 및 권한 Enum (`Role`) 설계
+- [x] 회원 리포지토리 (`UserRepository`) 구현
+- [x] Refresh Token 엔티티 (`RefreshToken`) 및 리포지토리 (`RefreshTokenRepository`) 구현
 
 ### 📌 [Phase 3] Security 및 JWT 인프라스트럭처 설정 `[ ]`
 - [ ] JWT 토큰 생성 및 검증을 담당할 `JwtProvider` 구현 (jjwt 0.12.6 빌더 패턴 사용)
