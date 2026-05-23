@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # 1. MySQL 데이터베이스 서비스
+  db:
+    image: mysql:8.0
+    container_name: final-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: final
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
+  # 2. 스프링 부트 애플리케이션 서비스
+  app:
+    build: .
+    container_name: final-app
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      # 컨테이너 네트워크(db)를 활용한 유기적 접속 정보 주입
+      DB_URL: jdbc:mysql://db:3306/final?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:
