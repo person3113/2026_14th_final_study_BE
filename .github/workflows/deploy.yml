@@ -1,4 +1,4 @@
-name: Docker & GitHub Actions CI/CD Pipeline (Oracle Cloud)
+name: Docker & GitHub Actions CI/CD Pipeline
 
 on:
   push:
@@ -70,7 +70,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # SSH 프로토콜 기반 Oracle Cloud VM 접속 및 무중단 배포 가동
+      # SSH 프로토콜 기반 대상 서버 접속 및 무중단 배포 가동
       - name: SSH Remote Connection and Container Re-deployment
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -135,4 +135,4 @@ jobs:
             # 불필요한 레거시 이미지 정리 (서버 디스크 절약)
             docker image prune -f
             
-            log.info "Re-deployment successfully completed on Oracle Cloud!"
+            echo "Re-deployment successfully completed!"
