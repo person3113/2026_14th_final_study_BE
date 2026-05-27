@@ -111,8 +111,12 @@ jobs:
                 command:
                   - --character-set-server=utf8mb4
                   - --collation-server=utf8mb4_unicode_ci
+                  - --innodb-buffer-pool-size=64M
+                  - --max-connections=50
+                  - --performance-schema=OFF
+                  - --skip-log-bin
                 healthcheck:
-                  test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD}"]
+                  test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
                   interval: 10s
                   timeout: 5s
                   retries: 10
@@ -128,6 +132,7 @@ jobs:
                   DB_USERNAME: ${DB_USERNAME}
                   DB_PASSWORD: ${DB_PASSWORD}
                   JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+                  JAVA_TOOL_OPTIONS: "-Xmx256m -Xms128m"
                 depends_on:
                   db:
                     condition: service_healthy
