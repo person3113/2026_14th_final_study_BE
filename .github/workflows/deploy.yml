@@ -111,6 +111,12 @@ jobs:
                 command:
                   - --character-set-server=utf8mb4
                   - --collation-server=utf8mb4_unicode_ci
+                healthcheck:
+                  test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD}"]
+                  interval: 10s
+                  timeout: 5s
+                  retries: 10
+                  start_period: 30s
               app:
                 image: ghcr.io/${{ steps.repo_info.outputs.owner }}/${{ steps.repo_info.outputs.repo_name }}:latest
                 container_name: final-app
@@ -123,7 +129,8 @@ jobs:
                   DB_PASSWORD: ${DB_PASSWORD}
                   JWT_SECRET_KEY: ${JWT_SECRET_KEY}
                 depends_on:
-                  - db
+                  db:
+                    condition: service_healthy
             volumes:
               mysql_data:
             EOF

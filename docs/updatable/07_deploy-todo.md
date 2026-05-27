@@ -168,7 +168,7 @@ GitHub Actions의 `deploy.yml`이 참조하는 Secret 값들을 모두 등록합
 | `SSH_HOST` | EC2 Public IP (예: `52.78.xxx.xxx`) | PHASE 1-4에서 복사한 EC2 Public IPv4 주소 |
 | `SSH_USERNAME` | `ubuntu`                           | AWS Ubuntu AMI 기본 접속 유저명 (고정값) |
 | `SSH_KEY` | `.pem` 파일의 전체 텍스트 내용               | PHASE 1-2에서 다운로드한 `.pem` 파일 전체 내용 |
-| `DB_USERNAME` | 원하는 MySQL 유저명 (예: `root`)          | MySQL 데이터베이스 접속 사용자명 |
+| `DB_USERNAME` | 원하는 MySQL 유저명 (예: `user`)            | MySQL 데이터베이스 접속 사용자명 |
 | `DB_PASSWORD` | 비밀번호 (예: `1234`)                   | MySQL 데이터베이스 접속 비밀번호 |
 | `JWT_SECRET_KEY` | 64자 이상 랜덤 문자열                      | JWT 토큰 서명 Secret Key |
 
